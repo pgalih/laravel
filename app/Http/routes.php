@@ -10,7 +10,13 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+use App\Task;
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/tasks', function() {
+	return view('tasks/dashboard');
 });
