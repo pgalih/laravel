@@ -13,16 +13,25 @@
 use App\Task;
 use Illuminate\Http\Request;
 
+
+
 Route::get('/', function () {
     return view('welcome');
 });
-
-
-Route::get('/tasks', function() {
-	return view('tasks/dashboard');
-});
-
 Route::get('/admin', function () {
     return view('dashboard/dashboard');
 });
+
+Route::get('/admin/roles', function () {
+    return view('');
+});
+
+Route::get('/admin/users', function () {
+    return view('');
+});
+
+Route::get('/admin/tasks', function() {
+	return view('tasks/dashboard');
+});
+
 
