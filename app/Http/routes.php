@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/tasks', function() {
 	return view('tasks/dashboard');
 });
+
+Route::get('/admin', function () {
+    return view('dashboard/dashboard');
+});
+
