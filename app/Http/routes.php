@@ -22,9 +22,9 @@ Route::get('/admin', function () {
     return view('dashboard/dashboard');
 });
 
-Route::get('/admin/roles', function () {
-    return view('');
-});
+Route::get('/admin/roles', 'RolesController@index');
+Route::get('/admin/roles/add', 'RolesController@create');
+Route::post('/admin/roles/post', 'RolesController@store');
 
 Route::get('/admin/users', function () {
     return view('');
