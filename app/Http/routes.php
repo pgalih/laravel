@@ -36,4 +36,4 @@ Route::get('/admin/add', 'TasksController@create');
 Route::post('/admin/post', 'TasksController@store');
 Route::delete('/admin/tasks/delete', 'TasksController@destroy');
 Route::delete('/admin/tasks/{id}/delete','TasksController@destroy');
-Route::delete('/admin/tasks/$tasks->id', 'TasksController@destroy');
+Route::delete('/admin/tasks/{task}', 'TasksController@destroy');

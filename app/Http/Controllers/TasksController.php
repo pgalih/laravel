@@ -8,8 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Task;
-use App\Http\Controllers\tasks;
-
+use Session;
 class TasksController extends Controller
 {
     /**
@@ -104,8 +103,7 @@ class TasksController extends Controller
          $task  = task::find($id);
         $task->delete();
 
-        // redirect
         Session::flash('message', 'Successfully deleted the task!');
-        return Redirect::to('admin/tasks');
+        return redirect('/admin/tasks');
     }
 }
