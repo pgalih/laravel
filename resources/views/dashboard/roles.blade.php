@@ -36,6 +36,7 @@ Roles Administrator
 				</td>
 				<td>
 					<a href="#"  class="btn btn-primary">Update</a>
+					
 					<a href="{{'RolesController@store'}}"  class="btn btn-danger">Delete</a>
 				</td>
 			</tr>
