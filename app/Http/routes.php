@@ -30,8 +30,10 @@ Route::get('/admin/users', function () {
     return view('');
 });
 
-Route::get('/admin/tasks', function() {
-	return view('tasks/dashboard');
-});
-
-
+Route::get('/admin/tasks', 'TasksController@index');
+Route::get('/admin/tasks/add', 'TasksController@create');
+Route::get('/admin/add', 'TasksController@create');
+Route::post('/admin/post', 'TasksController@store');
+Route::delete('/admin/tasks/delete', 'TasksController@destroy');
+Route::delete('/admin/tasks/{id}/delete','TasksController@destroy');
+Route::delete('/admin/tasks/$tasks->id', 'TasksController@destroy');
