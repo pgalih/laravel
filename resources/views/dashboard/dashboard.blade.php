@@ -36,16 +36,12 @@
         </div>
 
         
-        <div id="navbar" class="navbar-collapse collapse">
-         	{!! Form::open(array('class' => 'navbar-form navbar-right')) !!}
-          {!! Form::text('username', 'Username', array('class' => 'form-control')) !!}
-          {!! Form::password('password', array('class' => 'form-control')) !!}
-          {!! Form::submit('Send', array('class' => 'btn btn-success')) !!}
-	        {!! Form::close() !!}
-        </div><!--/.navbar-collapse -->
+        <a href="{{ url('logout') }}">Logout</a>
     </div>
 </nav>
     <!-- /nav -->
+
+
 
 
 <div class="container">

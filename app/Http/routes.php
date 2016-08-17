@@ -18,6 +18,12 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/login', 'LoginController@create');
+Route::get('/logout', 'LoginController@destroy');
+Route::post('/login','LoginController@store');
+
+
 Route::get('/admin', function () {
     return view('dashboard/dashboard');
 });
@@ -30,10 +36,12 @@ Route::get('/admin/users', function () {
     return view('');
 });
 
-Route::get('/admin/tasks', 'TasksController@index');
+Route::get('/admin/tasks',['middleware' => 'auth', 'uses' => 'TasksController@index']);
 Route::get('/admin/tasks/add', 'TasksController@create');
 Route::get('/admin/add', 'TasksController@create');
 Route::post('/admin/post', 'TasksController@store');
 Route::delete('/admin/tasks/delete', 'TasksController@destroy');
 Route::delete('/admin/tasks/{id}/delete','TasksController@destroy');
 Route::delete('/admin/tasks/{task}', 'TasksController@destroy');
+Route::get('/admin/tasks/edit/{id}', 'TasksController@edit');
+Route::put('/admin/tasks/update/{id}', 'TasksController@update');

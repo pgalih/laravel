@@ -6,13 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
-use App\Task;
+use Validator;
+use Auth;
 use Session;
 
 
-
-class TasksController extends Controller
+class LoginController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,10 +20,7 @@ class TasksController extends Controller
      */
     public function index()
     {
-          $tasks = Task::all();
-
-        return view('dashboard/tasks/list',compact('tasks'));
-
+        //
     }
 
     /**
@@ -34,7 +30,7 @@ class TasksController extends Controller
      */
     public function create()
     {
-         return view('dashboard/tasks/new');
+        return view ('dashboard/login/login');
     }
 
     /**
@@ -45,21 +41,31 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-
-        $this->validate($request, [
-            
-            'priority' => 'required',
-             
-              
-            
-
+        $validator = Validator::make($request->all(), [
+            'username' => 'required',
+            'password' => 'required',
         ]);
 
-        $input = $request->all();
+        if ($validator->fails()) {
+            return redirect('login')
+                ->withErrors($validator)
+                ->withInput();
+        }
 
-        Task::create($input);
+        $username=$request->input('username');
+        $password=$request->input('password');
 
-        return redirect('/admin/tasks');
+
+
+        if (Auth::attempt(['username' => $username, 'password' => $password])) {
+            // Authentication passed...
+            return redirect()->intended('admin/tasks');
+            } 
+            else   {
+                Session::flash('message', 'invalid password or username !');
+                return redirect('login');
+
+            }
     }
 
     /**
@@ -81,8 +87,7 @@ class TasksController extends Controller
      */
     public function edit($id)
     {
-        $task  = task::find($id);
-        return view('dashboard/tasks/edit',compact('task'));
+        //
     }
 
     /**
@@ -94,15 +99,7 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $task = task::find($id);
-        
-        $task->title=$request->input('title');
-        $task->priority=$request->input('priority');
-        $task->efectivity=$request->input('efectivity');
-        $task->description=$request->input('description');
-        $task->save();
-        Session::flash('message', 'Successfully deleted the task!');
-        return redirect('/admin/tasks');
+        //
     }
 
     /**
@@ -111,12 +108,10 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
-        $task  = task::find($id);
-        $task->delete();
-
-        Session::flash('message', 'Successfully deleted the task!');
-        return redirect('/admin/tasks');
+        Auth::logout();
+ Session::flash('message', 'Anda telah logout!');
+        return redirect ('login');
     }
 }
