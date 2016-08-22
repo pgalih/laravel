@@ -45,3 +45,8 @@ Route::delete('/admin/tasks/{id}/delete','TasksController@destroy');
 Route::delete('/admin/tasks/{task}', 'TasksController@destroy');
 Route::get('/admin/tasks/edit/{id}', 'TasksController@edit');
 Route::put('/admin/tasks/update/{id}', 'TasksController@update');
+
+Route::get('/admin/users',['middleware' => 'auth', 'uses' => 'UsersController@index']);
+Route::put('/admin/tasks/update/{id}', 'UsersController@update');
+Route::post('/admin/users/post', 'UsersController@store');
+Route::delete('/admin/users/{$user->id}', 'UsersController@destroy');
