@@ -24,10 +24,8 @@
       </div>
       <div class="col-xs-4 col-sm-6">
         <a href="#" class="list-group-item active">My Tasklist</a>
-		  <a href="#" class="list-group-item">Name : {{ Auth::user()->name }}</a>
-		  <a href="#" class="list-group-item">Phone number : {{ Auth::user()->no_hp }}</a>
-		  <a href="#" class="list-group-item">Email Address : {{ Auth::user()->email }} </a>
-		  <a href="#" class="list-group-item">Role : {{ Auth::user()->role_id }} </a>
+		  
+		  
       </div>
     </div>
   </div>

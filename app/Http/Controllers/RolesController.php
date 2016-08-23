@@ -102,6 +102,13 @@ class RolesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function UserRoles()
+    {
+    return $this->hasMany('users');
+    }
+
+
     public function destroy($id)
     {
         // delete
@@ -113,3 +120,5 @@ class RolesController extends Controller
         return redirect('/admin/roles');
     }
 }
+
+

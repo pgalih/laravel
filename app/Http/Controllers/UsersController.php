@@ -20,13 +20,10 @@ class UsersController extends Controller
      */
     public function index()
     {
-         $users = User::all();
-$roles = role::all();
+        $users = User::paginate(3)->sortByDesc('created_at');
+        $datas =  Role::where('status', '=' ,'active')->lists('name', 'id');
 
-$datas = role::lists('name');
-
-
-        return view('dashboard/users/users',compact('users','roles','datas'));
+        return view('dashboard/users/users',compact('users','datas'));
     }
 
     /**

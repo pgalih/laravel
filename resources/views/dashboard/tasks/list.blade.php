@@ -28,6 +28,13 @@ Roles Administrator
 		    {!! Form::label('title', 'Title:', ['class' => 'control-label']) !!}
 		    {!! Form::text('title', null, ['class' => 'form-control']) !!}
 		</div>
+
+		<div class="form-group">
+		    
+		    {!! Form::hidden('user_id',  Auth::user()->id , ['class' => 'form-control']) !!}
+		</div>
+
+
 		<div class="form-group">
 		   	{!! Form::label('priority', 'Priority:', ['class' => 'control-label']) !!}
 			{!!Form::select('priority', array('1' => '1', '2' => '2','3' => '3','4' => '4','5' => '5'), '5'); !!}
