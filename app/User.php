@@ -12,6 +12,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 {
     use Authenticatable, CanResetPassword;
 
+public function setPasswordAttribute($password)
+    {   
+        $this->attributes['password'] = bcrypt($password);
+    }
+    
     /**
      * The database table used by the model.
      *
@@ -25,6 +30,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $fillable = ['name', 'role_id','job_description','username','no_hp', 'email', 'password'];
+
 
     /**
      * The attributes excluded from the model's JSON form.

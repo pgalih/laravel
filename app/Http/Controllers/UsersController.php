@@ -46,6 +46,7 @@ class UsersController extends Controller
             
             'username' => 'required',
             'email' => 'required',
+
         
         ]);
 
@@ -75,7 +76,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+         $users  = user::find($id);
+        return view('dashboard/tasks/edit',compact('users'));
     }
 
     /**
@@ -94,6 +96,7 @@ class UsersController extends Controller
         $user->job_description=$request->input('job_description');
         $user->password=$request->input('password');
          $user->no_hp=$request->input('no_hp');
+          $user->role_id=$request->input('role_id');
         $user->save();
         Session::flash('message', 'Successfully updated the user!');
         return redirect('/admin/users');
