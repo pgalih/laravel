@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
 use Session;
+use App\role;
 
 
 class UsersController extends Controller
@@ -20,8 +21,12 @@ class UsersController extends Controller
     public function index()
     {
          $users = User::all();
+$roles = role::all();
 
-        return view('dashboard/users/users',compact('users'));
+$datas = role::lists('name');
+
+
+        return view('dashboard/users/users',compact('users','roles','datas'));
     }
 
     /**

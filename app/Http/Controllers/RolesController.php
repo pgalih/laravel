@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Role;
+use Session;
 
 class RolesController extends Controller
 {
@@ -50,7 +51,7 @@ class RolesController extends Controller
         $input = $request->all();
 
         Role::create($input);
-
+ 
         return redirect('/admin/roles');
     }
 
@@ -85,7 +86,14 @@ class RolesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $role = role::find($id);
+        
+        $role->name=$request->input('name');
+        $role->status=$request->input('status');
+       
+        $role->save();
+        Session::flash('message', 'Successfully update the role!');
+        return redirect('/admin/roles');
     }
 
     /**
@@ -97,11 +105,11 @@ class RolesController extends Controller
     public function destroy($id)
     {
         // delete
-        $role  = roles::find($id);
+        $role  = role::find($id);
         $role->delete();
 
         // redirect
         Session::flash('message', 'Successfully deleted the role!');
-        return Redirect::to('admin/roles');
+        return redirect('/admin/roles');
     }
 }

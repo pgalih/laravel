@@ -46,7 +46,9 @@ Roles Administrator
 
 			<div class="form-group">
 			    {!! Form::label('Role', 'Role:', ['class' => 'control-label']) !!}
-			    {!! Form::select('role_id', ['1' => '1', '2' => '2'], ['class' => 'form-control']) !!}
+			    
+
+			    {!! Form::select('role_id', $datas, ['class' => 'form-control']) !!}
 			</div>
 
 
@@ -158,7 +160,8 @@ Roles Administrator
 
 			<div class="form-group">
 			    {!! Form::label('Role', 'Role:', ['class' => 'control-label']) !!}
-			    {!! Form::select('role_id', ['1' => '1', '2' => '2'], ['class' => 'form-control']) !!}
+			    {!! Form::select('role_id', ['1'=>'1','2'=>'2'], ['class' => 'form-control']) !!}
+			  <!--  {!! Form::select('role_id', $datas, ['class' => 'form-control']) !!} -->
 			</div>
 	
 	

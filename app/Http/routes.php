@@ -31,6 +31,9 @@ Route::get('/admin', function () {
 Route::get('/admin/roles', 'RolesController@index');
 Route::get('/admin/roles/add', 'RolesController@create');
 Route::post('/admin/roles/post', 'RolesController@store');
+Route::put('/admin/roles/update/{id}', 'RolesController@update');
+Route::post('/admin/roles/post', 'RolesController@store');
+Route::delete('/admin/roles/delete/{id}', 'RolesController@destroy');
 
 Route::get('/admin/users', function () {
     return view('');
@@ -50,4 +53,4 @@ Route::get('/admin/users',['middleware' => 'auth', 'uses' => 'UsersController@in
 Route::put('/admin/tasks/update/{id}', 'UsersController@update');
 Route::post('/admin/users/post', 'UsersController@store');
 Route::delete('/admin/users/delete/{id}', 'UsersController@destroy');
-Route::get('/admin/users/profile', 'UsersController@profile');
+Route::get('/admin/profile', 'UsersController@profile');
