@@ -102,6 +102,12 @@ class UsersController extends Controller
         return redirect('/admin/users');
     }
 
+    public function profile()
+    {
+         
+        return view('dashboard/users/profile');
+    }
+
     /**
      * Remove the specified resource from storage.
      *

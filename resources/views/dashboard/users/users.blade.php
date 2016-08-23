@@ -181,7 +181,7 @@ Roles Administrator
   </div>
 </div>
 
-					<form action="{{ url('admin/users/'.$user->id)}}" method="POST" class="form-horizontal">
+					<form action="{{ url('admin/users/delete/'.$user->id)}}" method="POST" class="form-horizontal">
 					    {{ csrf_field() }}
 					    {{ method_field('DELETE') }}
 					    <button type="submit" class="btn btn-danger">

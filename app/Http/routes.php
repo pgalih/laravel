@@ -49,4 +49,5 @@ Route::put('/admin/tasks/update/{id}', 'TasksController@update');
 Route::get('/admin/users',['middleware' => 'auth', 'uses' => 'UsersController@index']);
 Route::put('/admin/tasks/update/{id}', 'UsersController@update');
 Route::post('/admin/users/post', 'UsersController@store');
-Route::delete('/admin/users/{id}', 'UsersController@destroy');
+Route::delete('/admin/users/delete/{id}', 'UsersController@destroy');
+Route::get('/admin/users/profile', 'UsersController@profile');
