@@ -197,5 +197,7 @@ Roles Administrator
 	@endforeach
 	</tbody>
 </table>
-{{ $users }}
+
+
+
 @endsection

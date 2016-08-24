@@ -37,22 +37,22 @@ Route::delete('/admin/roles/delete/{id}', 'RolesController@destroy');
 
 
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth','prefix' => 'admin'], function () {
 	    
-	Route::get('/admin/tasks','TasksController@index');
-	Route::get('/admin/tasks/add', 'TasksController@create');
-	Route::get('/admin/add', 'TasksController@create');
-	Route::post('/admin/post', 'TasksController@store');
-	Route::delete('/admin/tasks/delete', 'TasksController@destroy');
-	Route::delete('/admin/tasks/{id}/delete','TasksController@destroy');
-	Route::delete('/admin/tasks/{task}', 'TasksController@destroy');
-	Route::get('/admin/tasks/edit/{id}', 'TasksController@edit');
-	Route::put('/admin/tasks/update/{id}', 'TasksController@update');
-	Route::get('/admin/users','UsersController@index');
-	Route::put('/admin/tasks/update/{id}', 'UsersController@update');
-	Route::post('/admin/users/post', 'UsersController@store');
-	Route::delete('/admin/users/delete/{id}', 'UsersController@destroy');
-	Route::get('/admin/profile', 'UsersController@profile');
+	Route::get('/tasks','TasksController@index');
+	Route::get('/tasks/add', 'TasksController@create');
+	Route::get('/add', 'TasksController@create');
+	Route::post('/post', 'TasksController@store');
+	Route::delete('/tasks/delete', 'TasksController@destroy');
+	Route::delete('/tasks/{id}/delete','TasksController@destroy');
+	Route::delete('/tasks/{task}', 'TasksController@destroy');
+	Route::get('/tasks/edit/{id}', 'TasksController@edit');
+	Route::put('/tasks/update/{id}', 'TasksController@update');
+	Route::get('/users','UsersController@index');
+	Route::put('/tasks/update/{id}', 'UsersController@update');
+	Route::post('/users/post', 'UsersController@store');
+	Route::delete('/users/delete/{id}', 'UsersController@destroy');
+	Route::get('/profile', 'UsersController@profile');
 
     
 });

@@ -9,6 +9,9 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Session;
 use App\role;
+use Illuminate\Pagination\BootstrapFourPresenter;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 
 class UsersController extends Controller
