@@ -98,9 +98,13 @@ Roles Administrator
 
 
 <!-- Edit trigger modal -->
-<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#editmodal-{{$task->id}}">
-  Edit
-</button>
+@can('update', $task)
+    <!-- The Current User Can Update The Post -->
+    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#editmodal-{{$task->id}}">
+	  Edit
+	</button>
+@endcan
+
 
 <!-- Edit Modal -->
 <div class="modal fade" id="editmodal-{{$task->id}}" tabindex="-1" role="dialog" aria-labelledby="editmodal-{{$task->id}}Label">

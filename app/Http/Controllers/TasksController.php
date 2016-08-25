@@ -10,6 +10,8 @@ use App\Http\Controllers\Controller;
 use App\Task;
 use Session;
 
+use Gate;
+
 
 
 class TasksController extends Controller
@@ -95,7 +97,10 @@ class TasksController extends Controller
     public function update(Request $request, $id)
     {
         $task = task::find($id);
-        
+        if (Gate::denies('update', $task)) {
+            abort(403);
+        }
+
         $task->title=$request->input('title');
         $task->priority=$request->input('priority');
         $task->efectivity=$request->input('efectivity');

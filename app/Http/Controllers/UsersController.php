@@ -23,7 +23,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(3)->sortByDesc('created_at');
+        $users = User::paginate(50)->sortByDesc('created_at');
         $datas =  Role::where('status', '=' ,'active')->lists('name', 'id');
 
         return view('dashboard/users/users',compact('users','datas'));
