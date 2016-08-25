@@ -7,6 +7,9 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
+protected $redirectTo = '/login';
+protected $redirectAfterLogout = '/login';
+
 class AuthController extends Controller
 {
     /*
