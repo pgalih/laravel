@@ -6,6 +6,7 @@
         /float: left;/
         background: green;
         width: 300px !important;
+        high: 600px !important;
         z-index: 10000;
       opacity: 0.05;
     }
