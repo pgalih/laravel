@@ -1,0 +1,20 @@
+@media only screen and (max-width: 450px) {
+    #topads{
+        position: fixed;
+        top: 0;
+        left: 0;
+        /float: left;/
+        background: green;
+        width: 300px !important;
+        z-index: 10000;
+      opacity: 0.05;
+    }
+}
+
+@media only screen and (max-width: 2450px) {
+    #topads{
+        margin-top: 105px!important;
+
+
+    }
+}
